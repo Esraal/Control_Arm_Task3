@@ -81,15 +81,11 @@ background-color: gray;
 
  include 'dbconnection.php';
 if(isset($_POST['save'])){
-	$sql="INSERT INTO armcontrol (arm1, arm2, arm3, arm4, arm5, arm6) VALUES (:m1, :m2, :m3, :m4, :m5, :m6)";
+	$sql="INSERT INTO armcontrol (arm1, arm2) VALUES (:m1, :m2)";
 $stmt = $conn-> prepare($sql);
 	$stmt-> execute(array(
 ':m1' => $_POST['m1'],
-':m2' => $_POST['m2'],
-':m3' => $_POST['m3'],
-':m4' => $_POST['m4'],
-':m5' => $_POST['m5'],
-':m6' => $_POST['m6'],
+':m2' => $_POST['m2']
 ));
 
 }else if(isset($_POST['run'])) {
