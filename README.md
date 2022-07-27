@@ -3,6 +3,7 @@
 I created a control interface for the robot arm that can control the angles and a start and stop button and a button to save the angles, 
 languages used
 
+It also created a database to store the values
 
 1-html
 
