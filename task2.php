@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>task2(Robot arm)</title>
+<title>task1(Robot arm)</title>
 <style>
 
 
@@ -53,20 +53,20 @@ background-color: gray;
 </head>
 <body>
 <br><br><br>
-<h1><br>  control Arm  <br><br></h1>
+<h1><br>  control panel  <br><br></h1>
 <br><br>
 
 
  <form action=""  method = "POST">
  
  
- <form action=""  method = "POST">
- 
- 
  
  <label for="motor"> motor 1 : </label> <label > 0° <input type="range" id="motor" name="m1" min="0" max="180"> 180°</label>
         <br><label > motor 2 : </label> <label > 0° <input type="range" id="motor" name="m2" min="0" max="180"> 180°</label>
-        <br>
+        <br><label > motor 3 : </label> <label > 0° <input type="range" id="motor" name="m3" min="0" max="180"> 180°</label>
+        <br><label > motor 4 : </label> <label > 0° <input type="range" id="motor" name="m4" min="0" max="180"> 180°</label>
+        <br><label > motor 5 : </label> <label > 0° <input type="range" id="motor" name="m5" min="0" max="180"> 180°</label>
+        <br><label > motor 6 : </label> <label > 0° <input type="range" id="motor" name="m6" min="0" max="180"> 180°</label>
  
 <br><br> <br> <input type="submit"  name = save onclick="alert('saved')" value="save " >
 <br><br> <input type="submit" name = run value="run"  ><input type="submit" name = stop value="stop"  >
@@ -81,11 +81,15 @@ background-color: gray;
 
  include 'dbconnection.php';
 if(isset($_POST['save'])){
-	$sql="INSERT INTO armcontrol (arm1, arm2) VALUES (:m1, :m2)";
+	$sql="INSERT INTO armcontrol (arm1, arm2, arm3, arm4, arm5, arm6) VALUES (:m1, :m2, :m3, :m4, :m5, :m6)";
 $stmt = $conn-> prepare($sql);
 	$stmt-> execute(array(
 ':m1' => $_POST['m1'],
-':m2' => $_POST['m2']
+':m2' => $_POST['m2'],
+':m3' => $_POST['m3'],
+':m4' => $_POST['m4'],
+':m5' => $_POST['m5'],
+':m6' => $_POST['m6'],
 ));
 
 }else if(isset($_POST['run'])) {
